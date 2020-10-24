@@ -12,6 +12,7 @@ async def on_command_error(ctx, error):
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
     await ctx.send(error_msg)
 
+#会話ぼっとはじ
 
 @bot.command()
 async def ping(ctx):
@@ -29,6 +30,17 @@ async def ねむい(ctx):
 async def やほ(ctx):
     await ctx.send('やっほー！')
     
+@client.event
+async def on_message(message):
+    # メッセージ送信者がBotだった場合は無視する
+    if message.author.bot:
+        return
+    # 「/neko」と発言したら「にゃーん」が返る処理
+    if message.content == '/neko':
+        await message.channel.send('にゃーん')
+
+    
+#会話ぼっとおわ    
 @bot.command(aliases=["connect","summon"]) #connectやsummonでも呼び出せる
 async def join(ctx):
     """Botをボイスチャンネルに入室させます。"""
