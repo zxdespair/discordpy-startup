@@ -31,13 +31,13 @@ async def やほ(ctx):
     await ctx.send('やっほー！')
     
 @bot.command()
-async def on_message(ctx):
+async def on_message(message):
     # メッセージ送信者がBotだった場合は無視する
-    if ctx.author.bot:
+    if message.author.bot:
         return
     # 「/neko」と発言したら「にゃーん」が返る処理
-    if ctx.content == 'neko':
-        await ctx.channel.send('にゃーん')
+    if message.content == 'neko':
+        await message.channel.send('にゃーん')
 
     
 #会話ぼっとおわ    
