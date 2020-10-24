@@ -6,13 +6,6 @@ import traceback
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
-@client.event
-async def on_ready():
-    print('Logged in as')
-    print(client.user.name)
-    print(client.user.id)
-    print('------')
-
 @bot.event
 async def on_command_error(ctx, error):
     orig_error = getattr(error, "original", error)
@@ -83,6 +76,13 @@ async def play(ctx):
     voice_client.play(ffmpeg_audio_source)
 
     await ctx.send("再生しました。")
+    
+@client.event
+async def on_ready():
+    print('Logged in as')
+    print(client.user.name)
+    print(client.user.id)
+    print('------')
    
 @client.event
 async def on_message(message):
