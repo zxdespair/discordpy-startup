@@ -4,7 +4,7 @@ import os
 import traceback
 
 bot = commands.Bot(command_prefix='/')
-client = discord.Client()
+bot2 = commands.Bot()
 token = os.environ['DISCORD_BOT_TOKEN']
 
 
@@ -32,15 +32,10 @@ async def ねむい(ctx):
 async def やほ(ctx):
     await ctx.send('やっほー！')
     
-@client.event
-async def on_message(message):
-    # メッセージ送信者がBotだった場合は無視する
-    if message.author.bot:
-        return
-    # 「/neko」と発言したら「にゃーん」が返る処理
-    if message.content == 'neko':
-        await message.channel.send('にゃーん')
 
+@bot2.command()
+async def zecru(ctx):
+    await ctx.send('Hi!')
     
 #会話ぼっとおわ    
 @bot.command(aliases=["connect","summon"]) #connectやsummonでも呼び出せる
