@@ -26,8 +26,8 @@ async def ねむい(ctx):
     await ctx.send('それな')
     
 @bot.command()
-async def (ctx):
-    await ctx.send('pong')
+async def やほ(ctx):
+    await ctx.send('やっほー！')
     
 @bot.command(aliases=["connect","summon"]) #connectやsummonでも呼び出せる
 async def join(ctx):
