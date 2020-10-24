@@ -77,20 +77,5 @@ async def play(ctx):
 
     await ctx.send("再生しました。")
     
-@client.event
-async def on_ready():
-    print('Logged in as')
-    print(client.user.name)
-    print(client.user.id)
-    print('------')
-   
-@client.event
-async def on_message(message):
-    # 「やあ」というチャットが来た場合のメッセージ
-    if message.content.startswith("やあ"):
-        # 送り主がチャットボット以外なら返事を返す
-        if client.user != message.author:
-            message = "やあ、" + message.author.name
-            await client.send_message(message.channel, message)
             
 bot.run(token)
