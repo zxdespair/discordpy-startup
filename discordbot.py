@@ -16,6 +16,19 @@ async def on_command_error(ctx, error):
 @bot.command()
 async def ping(ctx):
     await ctx.send('pong')
+    
+@bot.command()
+async def だるい(ctx):
+    await ctx.send('わかるー')
+    
+@bot.command()
+async def ねむい(ctx):
+    await ctx.send('それな')
+    
+@bot.command()
+async def (ctx):
+    await ctx.send('pong')
+    
 @bot.command(aliases=["connect","summon"]) #connectやsummonでも呼び出せる
 async def join(ctx):
     """Botをボイスチャンネルに入室させます。"""
@@ -63,5 +76,14 @@ async def play(ctx):
     voice_client.play(ffmpeg_audio_source)
 
     await ctx.send("再生しました。")
-
+    
+@client.event
+async def on_message(message):
+    # 「やあ」というチャットが来た場合のメッセージ
+    if message.content.startswith("やあ"):
+        # 送り主がチャットボット以外なら返事を返す
+        if client.user != message.author:
+            message = "やあ、" + message.author.name
+            await client.send_message(message.channel, message)
+            
 bot.run(token)
