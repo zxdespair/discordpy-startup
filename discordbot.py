@@ -30,7 +30,7 @@ async def ねむい(ctx):
 async def やほ(ctx):
     await ctx.send('やっほー！')
     
-@client.event
+@bot.command()
 async def on_message(message):
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
