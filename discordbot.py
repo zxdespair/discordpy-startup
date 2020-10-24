@@ -6,6 +6,13 @@ import traceback
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
+@client.event
+async def on_ready():
+    print('Logged in as')
+    print(client.user.name)
+    print(client.user.id)
+    print('------')
+
 @bot.event
 async def on_command_error(ctx, error):
     orig_error = getattr(error, "original", error)
