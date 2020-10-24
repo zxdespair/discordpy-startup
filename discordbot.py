@@ -36,7 +36,7 @@ async def on_message(ctx):
     if ctx.author.bot:
         return
     # 「/neko」と発言したら「にゃーん」が返る処理
-    if ctx.content == '/neko':
+    if ctx.content == 'neko':
         await ctx.channel.send('にゃーん')
 
     
